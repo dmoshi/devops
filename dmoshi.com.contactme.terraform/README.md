@@ -31,7 +31,7 @@ These values will be used during terraforming. Then,
  ```
 Apply complete! Resources: 13 added, 0 changed, 0 destroyed.
 Outputs:
-base_url = https://l1opu72z16.execute-api.us-east-1.amazonaws.com/prod
+base_url = https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod
 curl = curl -H 'Content-Type: application/json' -X POST -d '{"sendersEmail": "daniel.moshi@dmoshi.com","message": "Contact App deployed and working successfully"}' https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/contactme
 ```
 
