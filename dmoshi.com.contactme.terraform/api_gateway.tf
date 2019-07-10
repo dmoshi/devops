@@ -24,12 +24,18 @@ resource "aws_api_gateway_integration" "lambda" {
   integration_http_method = "${aws_api_gateway_method.proxy.http_method}"
   type                    = "${var.GATEWAY_INTEGRATION_TYPE}"
   uri                     = "${aws_lambda_function.contactme_lambda.invoke_arn}"
+  credentials             = "${aws_iam_role.lambda_apigateway_iam_role.arn}"
 }
 
 resource "aws_api_gateway_method_response" "OK_200" {
   rest_api_id = "${aws_api_gateway_rest_api.contactme_api.id}"
   resource_id = "${aws_api_gateway_resource.proxy.id}"
   http_method = "${aws_api_gateway_method.proxy.http_method}"
+  
+    response_models = {
+    "application/json" = "Empty"
+  }
+  
   status_code = "200"
 }
 

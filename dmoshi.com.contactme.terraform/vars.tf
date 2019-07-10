@@ -11,6 +11,9 @@ variable "AWS_REGION" {
 variable "ENDPOINT_ADDRESS" {
 }
 
+variable "SUBJECT" {
+}
+
 variable "S3_BUCKET" {
 
 }
@@ -49,10 +52,18 @@ variable "HTTP_METHOD" {
 
 
 variable "GATEWAY_INTEGRATION_TYPE" {
-  default = "AWS_PROXY"
+  default = "AWS"
 }
 
 variable "API_STAGE_NAME" {
   default = "prod"
 }
 
+variable "MEMORY_LIMIT" {
+  default = "512"
+}
+
+
+variable "TIMEOUT" {
+  default = "15"
+}

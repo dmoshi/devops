@@ -3,27 +3,17 @@ resource "aws_lambda_function" "contactme_lambda" {
   filename = "${var.LAMBDA_BINARIES}"
   handler = "${var.LAMBDA_FUNCTION_HANDLER}"
   runtime = "${var.LAMBDA_RUNTIME}"
-  role = "${aws_iam_role.lambda_exec.arn}"
-}
-
-resource "aws_iam_role" "lambda_exec" {
-  name = "serverless_contactme_lambda"
-
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
+  role = "${aws_iam_role.lambda_apigateway_iam_role.arn}"
+  timeout = "${var.TIMEOUT}"
+  memory_size = "${var.MEMORY_LIMIT}"
+  
+  environment {
+    variables = {
+      SNS_TOPIC_ARN = "${aws_sns_topic.dmoshi_contactme_sns.arn}"
+      SUBJECT = "${var.SUBJECT}"
+      REGION_NAME = "${var.AWS_REGION}"
     }
-  ]
-}
-EOF
+  }
 }
 
 resource "aws_lambda_permission" "apigw" {
@@ -32,6 +22,4 @@ resource "aws_lambda_permission" "apigw" {
   function_name = "${aws_lambda_function.contactme_lambda.function_name}"
   principal     = "apigateway.amazonaws.com"
   source_arn = "${replace(aws_api_gateway_deployment.contactme_deploy.execution_arn, var.API_STAGE_NAME, "")}*/*"
-  
 }
- 

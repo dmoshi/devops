@@ -1,3 +1,4 @@
+plan.out
 .terraform/
 terraform.tfvars
 /target/
