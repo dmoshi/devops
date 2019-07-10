@@ -11,7 +11,7 @@ This project will build and deploy a serverless contact me application that allo
 1. Terraform installed on your sandbox (whether local or let say build server like Jenkins) 
 2. Maven installed, test by running ```mvn --version```
 3. AWS Credentials with required permission to connect to your environment
-4. Create a file named terraform.tfvars and add the following and replace the values with your own : 
+4. Create a file named ```terraform.tfvars``` and add the following and replace the values with your own : 
    
  ```yaml  
 AWS_ACCESS_KEY = "<<access key>>"
