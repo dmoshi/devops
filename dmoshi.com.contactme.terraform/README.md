@@ -5,6 +5,8 @@
 This project will build and deploy a serverless contact me application that allow website visitors to send SMS directly from my website __dmoshi.com__. Currently the website is configured for me to receive emails but I wrote and test this to show the power and flexibility of infrastructure as code. So the modified architecture will look like this : - 
 
 
+![Modified architecture](https://raw.githubusercontent.com/dmoshi/devops/master/dmoshi.com.contactme.terraform/resources/architecture_contactme_transparent-3.jpg "Modified architecture")
+
 
 #### Things you will need :- 
 
