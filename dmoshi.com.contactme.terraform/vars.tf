@@ -15,7 +15,16 @@ variable "S3_BUCKET" {
 
 }
 
-variable "S3_LAMBDA_KEY" {
+variable "APP_VERSION" {
+
+}
+
+variable "ACCOUNT_ID" {
+
+}
+
+variable "LAMBDA_ZIP" {
+default = "serverless/dmoshi.com.contactme.lambda/DMoshiContactMe.zip"
 }
 
 variable "LAMBDA_BINARIES" {
@@ -40,7 +49,7 @@ variable "HTTP_METHOD" {
 
 
 variable "GATEWAY_INTEGRATION_TYPE" {
-  default = "LAMBDA_PROXY"
+  default = "AWS_PROXY"
 }
 
 variable "API_STAGE_NAME" {
