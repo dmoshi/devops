@@ -1,9 +1,5 @@
 ### Terraform
 
-
-> * Just run __./build_conctactme_app.sh__ inside __/scripts__ folder
-
-
 #### Things you will need :- 
 
 1. Terraform installed on your sandbox (whether local or let say build server like Jenkins) 
