@@ -19,7 +19,7 @@ AWS_SECRET_KEY = "<<secret>>"
 AWS_REGION = "<<region>>"
 ENDPOINT_ADDRESS = "<<your-phone-number>>"
 S3_BUCKET = "<<your-bucket>>"
-SUBJECT = "<<sonject>>"
+SUBJECT = "<<subject>>"
 ```
 
 These values will be used during terraforming. Then,
