@@ -13,10 +13,12 @@ AWS_SECRET_KEY = "<<secret>>"
 AWS_REGION = "<<region>>"
 ENDPOINT_ADDRESS = "<<your-phone-number>>"
 S3_BUCKET = "<<your-bucket>>"
-S3_LAMBDA_KEY = "DMoshiContactMe.zip"
+SUBJECT = "<<sonject>>"
 ```
 
 These values will be used during terraforming. Then,
 
-> * Just run __./build_conctactme_app.sh__ inside __/scripts__ folder
+> * cd into  __/scripts__ folder
+> * Just run __./build_conctactme_app.sh__ 
+> * To remove the entire infrstructure from AWS just run __./delete_conctactme_app.sh__
 
