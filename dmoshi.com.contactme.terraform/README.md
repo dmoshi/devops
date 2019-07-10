@@ -35,11 +35,11 @@ base_url = https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod
 curl = curl -H 'Content-Type: application/json' -X POST -d '{"sendersEmail": "daniel.moshi@dmoshi.com","message": "Contact App deployed and working successfully"}' https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/contactme
 ```
 
-* I made a few adjustments from the [[original architecture]](https://github.com/dmoshi/serverless/tree/master/dmoshi.com.contactme.lambda) of contact me App, this one is building an __SMS subscription__ with AWS SNS instead of __Email__ as it's shown on the architecture diagram. This is because as of this writing __Terraform__ does not support creation of email subscriptions in SNS and I believe it's because it requires manual email verification. You will notice in the Terraform code I've changed SNS protocol to SMS and endpoint will obviously be a __phone number__. 
+* Invoking the API Gateway endpint above will send an SMS to a recipient defined in the variable ```ENDPOINT_ADDRESS``inside ```terraform.tfvars``` . 
 
 * The curl output above can be linked to a script that will execute the command (maybe after a delay to allow AWS to complete creating all resources) to automatically test the deployment end to end. 
 
-* Invoking the API Gateway endpint above will send an SMS to a recipient defined in the variable ```ENDPOINT_ADDRESS``inside ```terraform.tfvars``` . 
+* I made a few adjustments from the [[original architecture]](https://github.com/dmoshi/serverless/tree/master/dmoshi.com.contactme.lambda) of contact me App, this one is building an __SMS subscription__ with AWS SNS instead of __Email__ as it's shown on the architecture diagram. This is because as of this writing __Terraform__ does not support creation of email subscriptions in SNS and I believe it's because it requires manual email verification. You will notice in the Terraform code I've changed SNS protocol to SMS and endpoint will obviously be a __phone number__. 
 
 * To remove the entire infrstructure from AWS just run __./delete_conctactme_app.sh__
 
